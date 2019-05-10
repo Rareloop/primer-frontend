@@ -1,0 +1,7 @@
+{
+    "name": "rareloop/primer-frontend",
+    "require": {
+        "php": ">=7.1.0",
+        "twig/twig": "^2.6"
+    }
+}

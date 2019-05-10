@@ -1,0 +1,61 @@
+{% set html %}{% include pattern.id with pattern.data only %}{% endset %}
+{% set html = html|trim|dindent %}
+{% set url = '/patterns/' ~ pattern.id %}
+{% set urlWithState = url %}
+{% if pattern.state != 'default' %}
+    {% set urlWithState = url ~ '~' ~ pattern.state %}
+{% endif %}
+
+<div class="primer-pattern" data-id="{{ pattern.id }}">
+    <div class="primer-pattern__header">
+        <div class="primer-pattern__title">{{ pattern.title }} <span class="primer-pattern__id">{{ '{% include' }} '{{ pattern.id }}' {{ '%}' }}</span></div>
+        <div class="primer-pattern__actions">
+            {# Show states dropdown if there are multiple #}
+            {% if pattern.states|length > 1 %}
+                <ul class="primer-pattern__states">
+                    {% for stateOption in pattern.states %}
+                        <li class="primer-pattern__state">
+                            <a href="{{ url }}{% if stateOption != 'default' %}~{{ stateOption }}{% endif %}" class="primer-pattern__state-link{% if stateOption == pattern.state %} primer-pattern__state-link--current{% endif %}">{{ stateOption }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+            <a class="primer-pattern__link primer-pattern__link--isolate" href="{{ urlWithState }}" title="Show this pattern on its own">Isolate</a>
+            <a class="primer-pattern__link primer-pattern__link--fullscreen" href="{{ urlWithState }}?fullscreen" title="Show this pattern fullscreen">Fullscreen</a>
+        </div>
+    </div>
+    <div class="primer-pattern__content">
+        {{ html|raw }}
+    </div>
+    <div class="primer-tabs">
+        <ul class="primer-tabs-toc" role="tablist">
+            <li class="primer-tabs-toc__item" role="presentation">
+                <a role="tab" href="#{{ pattern.id }}:html" class="primer-tabs-toc__link">HTML</a>
+            </li>
+            <li class="primer-tabs-toc__item" role="presentation">
+                <a role="tab" href="#{{ pattern.id }}:twig" class="primer-tabs-toc__link">Twig</a>
+            </li>
+            <li class="primer-tabs-toc__item" role="presentation">
+                <a role="tab" href="#{{ pattern.id }}:data" class="primer-tabs-toc__link">Data</a>
+            </li>
+        </ul>
+        <div class="primer-tab" id="{{ pattern.id }}:html" role="tabpanel" aria-labelledby="{{ pattern.id }}:tab-title-html">
+            <div class="primer-tab__title" id="{{ pattern.id }}:tab-title-html">HTML</div>
+            <div class="primer-tab__content">
+                <pre class="primer-tab__pre"><code class="primer-tab__code language-markup">{{ html|trim }}</code></pre>
+            </div>
+        </div>
+        <div class="primer-tab" id="{{ pattern.id }}:twig" role="tabpanel" aria-labelledby="{{ pattern.id }}:tab-title-twig">
+            <div class="primer-tab__title" id="{{ pattern.id }}:tab-title-twig">Twig</div>
+            <div class="primer-tab__content">
+                <pre class="primer-tab__pre"><code class="primer-tab__code language-twig">{{ pattern.template }}</code></pre>
+            </div>
+        </div>
+        <div class="primer-tab" id="{{ pattern.id }}:data" role="tabpanel" aria-labelledby="{{ pattern.id }}:tab-title-data">
+            <div class="primer-tab__title" id="{{ pattern.id }}:tab-title-data">Data</div>
+            <div class="primer-tab__content">
+                <pre class="primer-tab__pre"><code class="primer-tab__code language-json">{{ pattern.data|json_encode(constant('JSON_PRETTY_PRINT') b-or constant('JSON_UNESCAPED_SLASHES')) }}</code></pre>
+            </div>
+        </div>
+    </div>
+</div>
