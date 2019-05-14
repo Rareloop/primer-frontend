@@ -1,5 +1,141 @@
 {% extends "primer-base.twig" %}
 
 {% block templateContent %}
-    404
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i" rel="stylesheet">
+    <style>
+        html {
+            height: 100%;
+        }
+
+        body {
+            display: flex;
+            height: 100%;
+            margin: 0;
+
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        [class^="primer-error"] {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .primer-error-main {
+            padding: 2em;
+        }
+
+        .primer-error-logo {
+            position: relative;
+            left: 3px;
+
+            width: 55px;
+        }
+
+        .primer-error-title {
+            margin: 0.6em 0 0;
+
+            font-size: 30px;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 400;
+            color: #101010;
+            line-height: 1.2;
+        }
+
+        .primer-error-code {
+            margin: 0.35em 0 0;
+
+            font-size: 20px;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 400;
+            color: #101010;
+            line-height: 1.2;
+        }
+
+        .primer-error-icon {
+            position: relative;
+            top: 3px;
+
+            margin-right: 0.3em;
+        }
+
+        .primer-error-copy {
+            margin: 2em 0 0;
+
+            font-size: 14px;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 400;
+            color: #737373;
+            line-height: 1.2;
+        }
+
+        @media screen and (min-width: 500px) {
+            .primer-error-title {
+                font-size: 45px;
+            }
+
+            .primer-error-code {
+                font-size: 25px;
+            }
+
+            .primer-error-icon {
+                top: 1px;
+            }
+
+            .primer-error-copy {
+                font-size: 17px;
+            }
+        }
+    </style>
+    <main class="primer-error-main">
+        <svg class="primer-error-logo" viewBox="0 0 27 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <!-- Generator: Sketch 54.1 (76490) - https://sketchapp.com -->
+            <title>logo copy 2</title>
+            <desc>Created with Sketch.</desc>
+            <defs>
+                <linearGradient x1="100%" y1="86.6150415%" x2="4.16744088%" y2="86.6150415%" id="linearGradient-1">
+                    <stop stop-color="#BBDDF1" offset="0%"></stop>
+                    <stop stop-color="#2E9DE5" offset="100%"></stop>
+                </linearGradient>
+                <linearGradient x1="29.7749291%" y1="64.6748571%" x2="62.5965585%" y2="-1.83196331%" id="linearGradient-2">
+                    <stop stop-color="#3588C5" offset="0%"></stop>
+                    <stop stop-color="#87C4EC" offset="100%"></stop>
+                </linearGradient>
+                <linearGradient x1="54.813771%" y1="41.9484652%" x2="28.7073114%" y2="91.8256226%" id="linearGradient-3">
+                    <stop stop-color="#0D5FC8" stop-opacity="0" offset="0%"></stop>
+                    <stop stop-color="#115FCA" stop-opacity="0" offset="0.0239160071%"></stop>
+                    <stop stop-color="#6C64FF" stop-opacity="0" offset="64.5903716%"></stop>
+                    <stop stop-color="#0E64CB" offset="100%"></stop>
+                </linearGradient>
+                <path d="M19.5138916,5.45513936 L19.5138916,15.8719988 C19.2621106,23.0820616 13.2130911,28.7228635 6.00302832,28.4710826 C5.82436486,28.4648435 5.64584829,28.4549375 5.46759144,28.4413707 L5.45592213,28.4404826 C3.39284668,28.283466 1.6958514,27.5437291 0.00121384582,26.5937946 L0.67507541,15.2260329 C0.928099498,11.9920623 5.1530314,8.73509784 13.3498711,5.45513936 L19.5138916,5.45513936 Z" id="path-4"></path>
+                <linearGradient x1="35.1978283%" y1="76.2820986%" x2="63.0507156%" y2="18.0464099%" id="linearGradient-5">
+                    <stop stop-color="#002BAE" offset="0%"></stop>
+                    <stop stop-color="#1A95E3" offset="100%"></stop>
+                </linearGradient>
+            </defs>
+            <g id="logo-copy-2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                <g id="Group">
+                    <path d="M0,5.45635321 L13.3340488,5.45635321 C20.7078935,5.45635321 26.6869193,11.4314928 26.6917137,18.8053359 L26.699742,31.1530176 C26.7001011,31.7053022 26.2526771,32.1533085 25.7003924,32.1536675 C25.699959,32.1536678 25.6995255,32.1536678 25.6990921,32.1536675 L13.3501965,32.1456391 C5.97568302,32.1408447 5.45813241e-14,26.1612755 3.73034936e-14,18.7867604 L0,5.45635321 Z" id="Mask" fill="url(#linearGradient-1)" transform="translate(13.349871, 18.805010) rotate(-90.000000) translate(-13.349871, -18.805010) "></path>
+                    <g id="Path">
+                        <use fill="url(#linearGradient-2)" xlink:href="#path-4"></use>
+                        <use fill="url(#linearGradient-3)" xlink:href="#path-4"></use>
+                    </g>
+                    <path d="M0.0628202933,12.9117917 C0.0628202933,6.03571173 5.34774798,0.513488586 12.0923027,0 L14.0499808,0 L13.4176979,13.6690323 C13.0844036,20.8743663 7.18265203,26.5045216 0.0628202933,26.5937946 L0.0628202933,12.9117917 Z" id="Path" fill="url(#linearGradient-5)"></path>
+                </g>
+            </g>
+        </svg>
+        <h1 class="primer-error-title">Page Not Found</h1>
+        <div class="primer-error-code">
+            <svg class="primer-error-icon" width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                    <g id="Primer-400" transform="translate(-471.000000, -420.000000)" fill="#000000" fill-rule="nonzero">
+                        <path d="M480,433 L482,433 L482,435 L480,435 L480,433 Z M480,425 L482,425 L482,431 L480,431 L480,425 Z M480.99,420 C475.47,420 471,424.48 471,430 C471,435.52 475.47,440 480.99,440 C486.52,440 491,435.52 491,430 C491,424.48 486.52,420 480.99,420 Z M481,438 C476.58,438 473,434.42 473,430 C473,425.58 476.58,422 481,422 C485.42,422 489,425.58 489,430 C489,434.42 485.42,438 481,438 Z" id="Shape"></path>
+                    </g>
+                </g>
+            </svg>
+            Error Code 404
+        </div>
+        <p class="primer-error-copy">The requested URL was not found on this server.</p>
+    </main>
 {% endblock %}
