@@ -166,7 +166,7 @@
     display: block;
 }
 
-.primer-pattern--enhanced {
+.primer-enhanced {
     .primer-tab__title {
         display: none;
     }
@@ -239,6 +239,10 @@
         &[aria-selected="false"] {
             opacity: 0.4;
         }
+    }
+
+    .primer-tab:not([hidden]) + .primer-tab:not([hidden]) {
+        display: none;
     }
 }
 

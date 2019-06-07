@@ -30,13 +30,13 @@
     <div class="primer-tabs">
         <ul class="primer-tabs-toc" role="tablist">
             <li class="primer-tabs-toc__item" role="presentation">
-                <a role="tab" href="#{{ pattern.id }}:html" class="primer-tabs-toc__link">HTML</a>
+                <a role="tab" href="#{{ pattern.id }}:html" class="primer-tabs-toc__link" aria-selected="true">HTML</a>
             </li>
             <li class="primer-tabs-toc__item" role="presentation">
-                <a role="tab" href="#{{ pattern.id }}:twig" class="primer-tabs-toc__link">Twig</a>
+                <a role="tab" href="#{{ pattern.id }}:twig" class="primer-tabs-toc__link" aria-selected="false">Twig</a>
             </li>
             <li class="primer-tabs-toc__item" role="presentation">
-                <a role="tab" href="#{{ pattern.id }}:data" class="primer-tabs-toc__link">Data</a>
+                <a role="tab" href="#{{ pattern.id }}:data" class="primer-tabs-toc__link" aria-selected="false">Data</a>
             </li>
         </ul>
         <div class="primer-tab" id="{{ pattern.id }}:html" role="tabpanel" aria-labelledby="{{ pattern.id }}:tab-title-html">
