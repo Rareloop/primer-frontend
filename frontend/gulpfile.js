@@ -12,6 +12,7 @@ const es2015 = require('babel-preset-es2015');
 const source = require('vinyl-source-stream');
 const streamify = require('gulp-streamify');
 const gutil = require('gulp-util');
+const runSequence = require('run-sequence');
 
 const paths = {
     sass: [
@@ -74,8 +75,10 @@ gulp.task('watch', () => {
     gulp.watch(paths.js, ['js']);
 });
 
-gulp.task('clean', function () {
+gulp.task('clean', () => {
     return gulp.src('dist', {read: false}).pipe(clean());
 });
 
-gulp.task('build', ['clean', 'sass', 'js', 'copy-images']);
+gulp.task('build', () => {
+    runSequence('clean', 'sass', 'js', 'copy-images');
+});

@@ -21,6 +21,7 @@
         "gulp-util": "^3.0.7",
         "html5shiv": "^3.7.3",
         "prismjs": "^1.15.0",
+        "run-sequence": "^2.2.1",
         "vinyl-source-stream": "^1.1.0",
         "watchify": "^3.10.0"
     }
