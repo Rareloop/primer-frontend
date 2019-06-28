@@ -58,17 +58,21 @@ export default class {
         });
 
         this.addEventListener('focus', '.primer-search__input', (event) => {
-
             this.surface.classList.add('primer-search--focus');
             this.updateResults(event.target.value);
         });
 
         this.addEventListener('blur', '.primer-search__input', (event) => {
-            this.renderResults([]);
+            // We need to kick the reset behaviour into the next runloop in case the user has
+            // clicked on one of the search result links. If we don't the blur hijacks the
+            // interaction and nothing happens
+            setTimeout(() => {
+                this.renderResults([]);
 
-            this.surface.classList.remove('primer-search--focus');
-            this.disableSearching();
-            this.container.querySelector('.primer-search__input').value = '';
+                this.surface.classList.remove('primer-search--focus');
+                this.disableSearching();
+                this.container.querySelector('.primer-search__input').value = '';
+            }, 100);
         });
     }
 
