@@ -9,11 +9,11 @@
             <div class="primer-nav-item__link">
                 <span class="primer-nav-item__link-title" title="{{ item.name }}">{{ item.name }}</span>
                 {% if linkNonLeafNodes %}
-                    <a class="primer-nav-item__group-link" href="/{{ urlPrefix }}/{{ item.id }}" title="View all patterns under this group">Isolate</a>
+                    <a class="primer-nav-item__group-link" href="{{ urlPrefix }}/{{ item.id }}" title="View all patterns under this group">Isolate</a>
                 {% endif %}
             </div>
         {% else %}
-            <a href="/{{ urlPrefix }}/{{ item.id }}" class="primer-nav-item__link"><span class="primer-nav-item__link-title" title="{{ item.name }}">{{ item.name }}</span></a>
+            <a href="{{ urlPrefix }}/{{ item.id }}" class="primer-nav-item__link"><span class="primer-nav-item__link-title" title="{{ item.name }}">{{ item.name }}</span></a>
         {% endif %}
 
 
@@ -36,7 +36,7 @@
                 <span class="primer-sidebar-group__title">Documentation</span>
                 <ul class="primer-nav-items">
                     {% for document in menu.documents.nodes %}
-                        {{ macros.renderItem(document, 0, 'docs', false) }}
+                        {{ macros.renderItem(document, 0, primer.basePath ~ '/docs', false) }}
                     {% endfor %}
                 </ul>
             </div>
@@ -46,7 +46,7 @@
                 <span class="primer-sidebar-group__title">Patterns</span>
                 <ul class="primer-nav-items">
                     {% for pattern in menu.patterns.nodes %}
-                        {{ macros.renderItem(pattern, 0, 'patterns') }}
+                        {{ macros.renderItem(pattern, 0, primer.basePath ~ '/patterns') }}
                     {% endfor %}
                 </ul>
             </div>
@@ -56,7 +56,7 @@
                 <span class="primer-sidebar-group__title">Templates</span>
                 <ul class="primer-nav-items">
                     {% for template in menu.templates.nodes %}
-                        {{ macros.renderItem(template, 0, 'templates', false) }}
+                        {{ macros.renderItem(template, 0, primer.basePath ~ '/templates', false) }}
                     {% endfor %}
                 </ul>
             </div>

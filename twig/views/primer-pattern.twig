@@ -1,6 +1,6 @@
 {% set html %}{% include pattern.id with pattern.data only %}{% endset %}
 {% set html = html|trim|dindent %}
-{% set url = '/patterns/' ~ pattern.id %}
+{% set url = primer.basePath ~ '/patterns/' ~ pattern.id %}
 {% set urlWithState = url %}
 {% if pattern.state != 'default' %}
     {% set urlWithState = url ~ '~' ~ pattern.state %}
