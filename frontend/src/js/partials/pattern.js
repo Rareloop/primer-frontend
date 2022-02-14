@@ -1,4 +1,5 @@
 import 'prismjs/prism.js';
+import 'prismjs/components/prism-markup-templating';
 import 'prismjs/components/prism-twig';
 import 'prismjs/components/prism-json';
 
@@ -22,14 +23,23 @@ tabs.forEach((tabs) => {
     const links = tabs.querySelectorAll('.primer-tabs-toc__link');
     const panels = tabs.querySelectorAll('.primer-tab');
 
+    panels.forEach((panel) => {
+        panel.setAttribute('hidden', true);
+    });
+
+    links.forEach((l) => {
+        l.setAttribute('aria-selected', false);
+    });
+
     links.forEach((link) => {
         link.addEventListener('click', (event) => {
             event.preventDefault();
+            let shouldDeselect = link.getAttribute('aria-selected') === 'true';
 
             const id = link.getAttribute('href').replace('#', '');
 
             panels.forEach((panel) => {
-                if (panel.id === id) {
+                if (panel.id === id && !shouldDeselect) {
                     panel.removeAttribute('hidden');
                 } else {
                     panel.setAttribute('hidden', true);
@@ -40,15 +50,11 @@ tabs.forEach((tabs) => {
                 l.setAttribute('aria-selected', false);
             });
 
-            link.setAttribute('aria-selected', true);
+            if (!shouldDeselect) {
+                link.setAttribute('aria-selected', true);
+            }
         });
     });
-
-    links[0].dispatchEvent(new MouseEvent('click', {
-        view: window,
-        bubbles: true,
-        cancelable: true
-    }));
 });
 
 // Setup all State options

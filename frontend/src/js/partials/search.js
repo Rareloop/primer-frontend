@@ -72,7 +72,7 @@ export default class {
                 this.surface.classList.remove('primer-search--focus');
                 this.disableSearching();
                 this.container.querySelector('.primer-search__input').value = '';
-            }, 100);
+            }, 250);
         });
     }
 

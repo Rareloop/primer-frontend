@@ -820,13 +820,19 @@
 }
 
 .primer-pattern__content {
-  margin: 0 12px 12px;
+  margin: 0 12px;
   padding: 16px;
   border: 1px solid rgba(151, 151, 151, 0.17);
 }
 
 .primer-tabs {
   padding: 0 12px 12px;
+}
+
+.primer-tabs-toc {
+  border-right: 1px solid rgba(151, 151, 151, 0.17);
+  border-left: 1px solid rgba(151, 151, 151, 0.17);
+  background: #fdfdfd;
 }
 
 .primer-tab__title,
@@ -1034,6 +1040,14 @@ code[class*="language-"] {
   -webkit-hyphens: none;
   -ms-hyphens: none;
   hyphens: none;
+}
+
+pre[class*="language-"]::-moz-selection,
+code[class*="language-"]::-moz-selection,
+pre[class*="language-"]::mozselection,
+code[class*="language-"]::mozselection {
+  text-shadow: none;
+  background: #b3d4fc;
 }
 
 pre[class*="language-"]::selection,
