@@ -118,7 +118,7 @@
 }
 
 .primer-pattern__content {
-    margin: 0 12px 12px;
+    margin: 0 12px;
     padding: 16px;
 
     border: 1px solid rgba(#979797, 0.17);
@@ -126,6 +126,12 @@
 
 .primer-tabs {
     padding: 0 12px 12px;
+}
+
+.primer-tabs-toc {
+    border-right: 1px solid rgba(#979797, 0.17);
+    border-left: 1px solid rgba(#979797, 0.17);
+    background: #fdfdfd;
 }
 
 .primer-tab__title ,
